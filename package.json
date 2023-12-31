@@ -1,0 +1,32 @@
+{
+  "name": "universal-dns-updater",
+  "version": "1.0.0",
+  "description": "Updated any dns that has a https udpate protocol",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryce-schultz/Universal-DNS-Updater.git"
+  },
+  "keywords": [
+    "DNS",
+    "DDNS",
+    "domain",
+    "domain_name"
+  ],
+  "author": "Bryce Schultz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryce-schultz/Universal-DNS-Updater/issues"
+  },
+  "homepage": "https://github.com/bryce-schultz/Universal-DNS-Updater#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
