@@ -9,40 +9,28 @@
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL' crossorigin='anonymous' defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
     <script src="providers.js" defer></script>
     <script src="records.js" defer></script>
+    <script src="add_record.js" defer></script>
 </head>
-<body onload='bodyLoad()'>
+<body>
     <div class='container'>
         <div class='mt-3 mb-3'>
             <h1>DNS Updater</h1>
         </div>
-
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="material-symbols-outlined">
-                    add
-                </span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a id='add-record-button' class="dropdown-item" href="add_provider.html">Provider</a></li>
-                <li><a id='add-record-button' class="dropdown-item" href="add_record.html">Record</a></li>
-            </ul>
-        </div>
-
         <div class="mb-3">
-            <h3>DNS Records</h2>
-            <ul id='dns-records-list' class='list-group'>
-            </ul>
+            <label class='form-label'>Name</label>
+            <input id='name-input' type="text" class="form-control">
         </div>
-        
         <div class="mb-3">
-            <h3>DNS Providers</h2>
-            <ul id='dns-providers-list' class='list-group'>
-            </ul>
+            <label class='form-label'>Provider</label>
+            <select id='providers-select' class="form-select" aria-label="Default select example">
+                <option selected value='none'>Providers</option>
+            </select>
         </div>
+        <div id='options-container' class="mb-3">
+        </div>
+        <button id='submit-button' class='btn btn-success'>Submit</button>
     </div>
 </body>
 </html>
