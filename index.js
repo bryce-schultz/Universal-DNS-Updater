@@ -1,10 +1,12 @@
 const express = require('express');
 const path = require('path');
-const { readFileSync, writeFileSync } = require('fs');
+const { readFileSync, writeFileSync, existsSync } = require('fs');
 const bodyParser = require('body-parser');
 const http = require('http');
+var dialog = require('dialog');
 
-const default_data = {
+const default_data = 
+{
   'records': [],
   'providers': []
 };
@@ -49,8 +51,18 @@ class Record
 }
 
 const app = express();
-const port = 3000;
+const port = 80;
 const data_file = 'dns.json';
+
+function createDataFileIfNotExists()
+{
+  if (!existsSync(data_file))
+  {
+    writeFileSync(data_file, "", {flag: 'wx'});
+  }
+}
+
+createDataFileIfNotExists();
 
 function readData()
 {
@@ -151,12 +163,14 @@ app.post('/dns-records/add', (req, res) =>
 
 app.use((req, res) => 
 {
-  res.type('text/plain');
-  res.status(404);
-  res.send('404 Not found');
+  res.redirect('/');
 });
 
 app.listen(port, () => 
 {
-  console.log(`Example app listening on port ${port}`)
+  const port_text = port == 80 ? '' : `:${port}`;
+  console.log(`App Hosted on http://localhost${port_text}
+              http://127.0.0.1${port_text}`);
+              
+  require('child_process').exec(`start http://localhost${port_text}/`);
 });

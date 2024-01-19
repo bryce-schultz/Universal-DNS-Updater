@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/bryce-schultz/Universal-DNS-Updater#readme",
   "dependencies": {
+    "dialog": "^0.3.1",
     "express": "^4.18.2"
   },
   "devDependencies": {

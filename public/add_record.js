@@ -1,6 +1,7 @@
 const providers_select = document.getElementById('providers-select');
 const options_container = document.getElementById('options-container');
 const submit_button = document.getElementById('submit-button');
+const name_option = document.getElementById('name-option');
 
 document.body.addEventListener('load', populateProvidersSelect());
 providers_select.addEventListener('change', showOptions);
@@ -24,8 +25,11 @@ async function showOptions()
     if (providers_select.value === 'none')
     {
         options_container.innerHTML = '';
+        name_option.classList.add('d-none');
         return;
     }
+    
+    name_option.classList.remove('d-none');
 
     const providers = await getDNSProviders();
 
